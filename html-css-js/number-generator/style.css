@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+html, body {
+    height: 100%;
+}
+
+p, h1, h2, input, output, button {
+    text-align: center;
+}
+
+header {
+    border-bottom: 2px solid black;
+    background-image: linear-gradient(white, lightgray);
+    margin-bottom: 2em;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.425);
+    height: 15vh;
+}
+main {
+    margin: auto;
+    max-width: 50em;
+    border: 1px solid black;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.425);
+}
+h1, h2 {
+    text-decoration: underline;
+    padding: 1em;
+    font-size: 4vh;
+}
+input {
+    display: block;
+    height: 7vh;
+    width: 99%;
+    font-size: 2vw;
+    margin: 2em 0;
+    background-color: lightblue;
+}
+button {
+    font-size: 200%;
+    height: 10vh;
+}
+main > div {
+    padding: 5em 2em;
+    border: 1px solid black;
+}
+div#basic > output {
+    display: block;
+    padding: 2em;
+    border: 1px solid black;
+}
+div#basic > button {
+    display: block;
+    width: 100%;
+    border: 1px solid black;
+}
+div#colors > output#outputC {
+    font-size: 0;
+}
+div#colors > output#outputC > div {
+    font-size: 16px;
+    display: inline-block;
+    background-color: black;
+    height: 7em;
+    text-align: left;
+    border: 0px  solid black;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+
+    margin: 1em 0em;
+}
+div#colors > output#outputC > div > p {
+    display: block;
+    text-align: left;
+    width: fit-content;
+    font-size: 70%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+div#colors > button {
+    display: block;
+    width: 100%;
+    border: 1px solid black;
+}
+div#coin {
+    display: block;
+    height: 20em;
+    width: 20em;
+    border-radius: 50%;
+    background-color: red;
+    margin: auto;
+}

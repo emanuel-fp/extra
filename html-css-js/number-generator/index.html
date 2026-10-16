@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Random number generator</title>
+</head>
+<body>
+
+
+    <header>
+        <h1>Random Number Generator</h1>
+    </header>
+    <main>
+        <div id="basic">
+            <h2>Normal Generator</h2>
+            <input type="number" id="minN" value="1" onkeypress="if(!/[0-9]/.test(event.key) && !(event.key === '-' && this.value.length === 0)) event.preventDefault();">
+            <input type="number" id="maxN" value="10" onkeypress="if(!/[0-9]/.test(event.key) && !(event.key === '-' && this.value.length === 0)) event.preventDefault();">
+            <output id="outputN"></output>
+            <button onclick="generateNumber()">Generate Random Number</button>
+        </div>
+        <div id="colors">
+            <h2>Color Sort</h2>
+            <input type="number" id="amountC" value="10">
+            <output id="outputC"></output>
+            <button onclick="generateColor()">Generate Random Color</button>
+            <button onclick="selectColor()">Select Color</button>
+        </div>
+        <div id="coinflip">
+            <h2>Coinflip</h2>
+            <div onclick="flip()" id="coin"></div>
+        </div>
+    </main>
+        <script src="script.js"></script>
+</body>
+</html>
