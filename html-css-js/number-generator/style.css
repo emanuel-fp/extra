@@ -8,6 +8,7 @@ html, body {
 
 p, h1, h2, input, output, button {
     text-align: center;
+    font-size: 5vh;
 }
 
 header {
@@ -32,7 +33,7 @@ input {
     display: block;
     height: 7vh;
     width: 99%;
-    font-size: 2vw;
+    font-size: 3vh;
     margin: 2em 0;
     background-color: lightblue;
 }
@@ -66,7 +67,7 @@ div#colors > output#outputC > div {
     border: 0px  solid black;
     border-top-width: 1px;
     border-bottom-width: 1px;
-
+    transition-duration: 500ms;
     margin: 1em 0em;
 }
 div#colors > output#outputC > div > p {
@@ -83,11 +84,25 @@ div#colors > button {
     width: 100%;
     border: 1px solid black;
 }
+div#coinflip {
+    height: 50vh;
+}
 div#coin {
-    display: block;
-    height: 20em;
-    width: 20em;
+    display: flex;
+    height: 40vh;
+    width: 40vh;
     border-radius: 50%;
     background-color: red;
     margin: auto;
+    border: 5px solid black;
+    box-shadow: 0 0 10px 0 black;
+    align-items: center;
+    justify-content: center;
+    transition-duration: 300ms;
+    container-type: inline-size;
+}
+div#coin > p {
+    font-size: 50cqw;
+    vertical-align: middle;
+    text-align: center;
 }
