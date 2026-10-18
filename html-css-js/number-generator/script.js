@@ -7,6 +7,7 @@ const coin = document.getElementById("coin")
 
 let coinAnimPlaying = false
 let numAnimPlaying = false
+let colorAnimPlaying = false
 
 //fazer o resto do codigo mais bonito
 
@@ -36,8 +37,9 @@ async function generateNumber (animation) {
     numAnimPlaying = false
 }
 
-function generateColor () {
-    
+async function generateColor () {
+    if (colorAnimPlaying) {return}
+    colorAnimPlaying = true
     let htmlContent = "";
     for (i=0;i < amountC.value;i++) {
         let r = Math.floor(Math.random() * 256);
@@ -48,6 +50,8 @@ function generateColor () {
         htmlContent += `<div style="background-color:${randomColor}; width:${size};"> <p>${i+1}</p></div>  `;
     }
     outputC.innerHTML = htmlContent
+    await sleep(500)
+    colorAnimPlaying = false
 }
 
 async function selectColor() {
@@ -55,6 +59,8 @@ async function selectColor() {
     if (divs.length == 1) {
         return
     }
+    if (colorAnimPlaying) {return}
+    colorAnimPlaying = true
     let walks = newnumber(divs.length*2, divs.length*3);
     let target
     for (i = 0; i < walks; i++) {
@@ -80,6 +86,8 @@ async function selectColor() {
     target.style.height = ""
     target.style.transitionDuration = "500ms"
     target.style.width = "100%"
+    await sleep(500)
+    colorAnimPlaying = false
 }
 async function flip (animation) {
     if (coinAnimPlaying) {return}
