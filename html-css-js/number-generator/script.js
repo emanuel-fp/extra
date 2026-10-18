@@ -7,6 +7,8 @@ const coin = document.getElementById("coin")
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+const log = (...msg) => console.log(...msg)
+
 function newnumber (min, max) {
     min = Number(min)
     max = Number(max)
@@ -19,7 +21,6 @@ function generateNumber () {
 
 function generateColor () {
     
-
     let htmlContent = "";
     for (i=0;i < amountC.value;i++) {
         let r = Math.floor(Math.random() * 256);
@@ -35,17 +36,38 @@ function generateColor () {
 async function selectColor() {
     let walks = newnumber(30, 50);
     let originalHtmlArray = outputC.innerHTML.split("  ");
-    let parts = [];
-    // ajeitar o codigo
-    for (let i = 0; i < walks; i++) {
-        let chosen = originalHtmlArray[i % (originalHtmlArray.length - 1)];
-        parts = chosen.split(" ");
-        parts.splice(4, 0, "height:8em>");
-        console.log(i)
+    let part = [];
+    for (i = 0; i < walks; i++) {
+        let item = i % (originalHtmlArray.length - 1)
+        part = originalHtmlArray[item];
+
+        part = part.split(" ");
+        log(part)
+        part.splice(3, 0, "height:8em;");
+        log(part)
+        part = part.join(" ")
+        log(part)
+        originalHtmlArray.splice(item, 1, part)
+        outputC.innerHTML = originalHtmlArray;
+        
+        log("-----------------")
         await sleep(newnumber(1500, 2000) / (walks - i + 10));
+        if (i<walks-1) {
+            part = part.split(" ");
+            part.splice(3, 1);
+            part = part.join(" ")
+            originalHtmlArray.splice(item, 1, part)
+            outputC.innerHTML = originalHtmlArray;
+        }
+
     }
-    
-    outputC.innerHTML = parts.join(" ");
+    await sleep(1000)
+    part = part.split(" ");
+    part.splice(4, 1, "width:100%;>");
+    log(part)
+    part = part.join(" ")
+    log(part)
+    outputC.innerHTML = part;
 }
 async function flip (animation) {
     let flips = newnumber(30, 50);
