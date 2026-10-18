@@ -5,6 +5,9 @@ const maxN = document.getElementById("maxN");
 const amountC = document.getElementById("amountC");
 const coin = document.getElementById("coin")
 
+let coinAnimPlaying = false
+let numAnimPlaying = false
+
 //fazer o resto do codigo mais bonito
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -18,6 +21,8 @@ function newnumber (min, max) {
 }
 
 async function generateNumber (animation) {
+    if (numAnimPlaying) {return}
+    numAnimPlaying = true
     if(animation) {
         let walks = newnumber(30, 50)
         for (i=0;i<walks;i++) {
@@ -27,7 +32,8 @@ async function generateNumber (animation) {
     }else {
         outputN.innerText = newnumber(minN.value, maxN.value);
     }
-
+    await sleep(500)
+    numAnimPlaying = false
 }
 
 function generateColor () {
@@ -45,8 +51,11 @@ function generateColor () {
 }
 
 async function selectColor() {
-    let walks = newnumber(30, 50);
     let divs = outputC.querySelectorAll("div")
+    if (divs.length == 1) {
+        return
+    }
+    let walks = newnumber(divs.length*2, divs.length*3);
     let target
     for (i = 0; i < walks; i++) {
         target = divs[i%divs.length]
@@ -59,7 +68,7 @@ async function selectColor() {
         }
 
     }
-    await sleep(1000)
+    await sleep(500)
     for (i = 0; i < divs.length; i++) {
         let instance = divs[i%divs.length]
 
@@ -73,6 +82,9 @@ async function selectColor() {
     target.style.width = "100%"
 }
 async function flip (animation) {
+    if (coinAnimPlaying) {return}
+    coinAnimPlaying = true
+
     let flips = newnumber(30, 50);
     if (animation) {
         let size = 50
@@ -103,6 +115,8 @@ async function flip (animation) {
                 coin.innerHTML = "<p>T</p>"
         }
     }
+    await sleep(500)
+    coinAnimPlaying = false
 }
 
 flip()
