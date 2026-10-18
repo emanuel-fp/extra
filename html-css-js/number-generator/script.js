@@ -5,6 +5,8 @@ const maxN = document.getElementById("maxN");
 const amountC = document.getElementById("amountC");
 const coin = document.getElementById("coin")
 
+//fazer o resto do codigo mais bonito
+
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const log = (...msg) => console.log(...msg)
@@ -15,8 +17,17 @@ function newnumber (min, max) {
     return Math.floor((Math.random() * (max - min+1)+min));
 }
 
-function generateNumber () {
-    outputN.innerText = newnumber(minN.value, maxN.value);
+async function generateNumber (animation) {
+    if(animation) {
+        let walks = newnumber(30, 50)
+        for (i=0;i<walks;i++) {
+            outputN.innerText = newnumber(minN.value, maxN.value);
+            await sleep(newnumber(1500, 2000) / (walks - i + 10))
+        }
+    }else {
+        outputN.innerText = newnumber(minN.value, maxN.value);
+    }
+
 }
 
 function generateColor () {
@@ -35,39 +46,31 @@ function generateColor () {
 
 async function selectColor() {
     let walks = newnumber(30, 50);
-    let originalHtmlArray = outputC.innerHTML.split("  ");
-    let part = [];
+    let divs = outputC.querySelectorAll("div")
+    let target
     for (i = 0; i < walks; i++) {
-        let item = i % (originalHtmlArray.length - 1)
-        part = originalHtmlArray[item];
+        target = divs[i%divs.length]
 
-        part = part.split(" ");
-        log(part)
-        part.splice(3, 0, "height:8em;");
-        log(part)
-        part = part.join(" ")
-        log(part)
-        originalHtmlArray.splice(item, 1, part)
-        outputC.innerHTML = originalHtmlArray;
-        
-        log("-----------------")
+        target.style.height = "7em"
+
         await sleep(newnumber(1500, 2000) / (walks - i + 10));
         if (i<walks-1) {
-            part = part.split(" ");
-            part.splice(3, 1);
-            part = part.join(" ")
-            originalHtmlArray.splice(item, 1, part)
-            outputC.innerHTML = originalHtmlArray;
+            target.style.height = ""
         }
 
     }
     await sleep(1000)
-    part = part.split(" ");
-    part.splice(4, 1, "width:100%;>");
-    log(part)
-    part = part.join(" ")
-    log(part)
-    outputC.innerHTML = part;
+    for (i = 0; i < divs.length; i++) {
+        let instance = divs[i%divs.length]
+
+        if (instance != target) {
+            instance.remove()
+        }
+
+    }
+    target.style.height = ""
+    target.style.transitionDuration = "500ms"
+    target.style.width = "100%"
 }
 async function flip (animation) {
     let flips = newnumber(30, 50);

@@ -18,11 +18,11 @@
             <input type="number" id="minN" value="1" onkeypress="if(!/[0-9]/.test(event.key) && !(event.key === '-' && this.value.length === 0)) event.preventDefault();">
             <input type="number" id="maxN" value="10" onkeypress="if(!/[0-9]/.test(event.key) && !(event.key === '-' && this.value.length === 0)) event.preventDefault();">
             <output id="outputN"></output>
-            <button onclick="generateNumber()">Generate Random Number</button>
+            <button onclick="generateNumber(true)">Generate Random Number</button>
         </div>
         <div id="colors">
             <h2>Color Sort</h2>
-            <input type="number" id="amountC" value="10">
+            <input type="number" id="amountC" value="10" min="2">
             <output id="outputC"></output>
             <button onclick="generateColor()">Generate Random Color</button>
             <button onclick="selectColor()">Select Color</button>

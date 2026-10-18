@@ -62,12 +62,14 @@ div#colors > output#outputC > div {
     font-size: 16px;
     display: inline-block;
     background-color: black;
-    height: 7em;
+    height: 8em;
     text-align: left;
     border: 0px  solid black;
     border-top-width: 1px;
     border-bottom-width: 1px;
-    transition-duration: 500ms;
+    transition-property: height width;
+    transition-duration: 50ms;
+    transition-timing-function: ease-out;
     margin: 1em 0em;
 }
 div#colors > output#outputC > div > p {
@@ -98,6 +100,8 @@ div#coin {
     box-shadow: 0 0 10px 0 black;
     align-items: center;
     justify-content: center;
+    transition-property: height width;
+    transition-timing-function: linear;
     transition-duration: 300ms;
     container-type: inline-size;
 }
