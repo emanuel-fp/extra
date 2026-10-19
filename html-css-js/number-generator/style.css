@@ -22,7 +22,7 @@ header {
 nav {
     text-align: center;
 }
-nav > a {
+a.link {
     color: white;
     font-size: 2.3vh;
     background-color: black;
@@ -31,7 +31,7 @@ nav > a {
     border-radius: 10px;
     border: 2px solid black;
 }
-nav > a:hover {
+a.link:hover {
     color: lightgray;
     font-size: 2.3vh;
     background-color: darkgray;
@@ -40,8 +40,7 @@ nav > a:hover {
     border-radius: 10px;
     border: 2px solid black;
 }
-nav > a:active {
-    color: black;
+a.link:active {    color: black;
     font-size: 2.3vh;
     background-color: white;
     padding: .5vh;
@@ -49,6 +48,7 @@ nav > a:active {
     border-radius: 10px;
     border: 2px solid black;
 }
+
 main {
     margin: auto;
     max-width: 50em;
