@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    height: 100vh;
+}
+main {
+    max-width: 80em;
+    margin: auto;
+    padding: 2em;
+}
+
+span.title {
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 3vh;
+}
+span.description {
+    font-size: 1vh;
+}
+div.divisor {
+   background-color: black; 
+   height: 2px;
+   width: 100%;
+   margin: 2vh 0em;
+   transition-duration: .3s;
+}
+.project {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+
+    width: 20vh;
+    height: 20vh;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 2vh;
+
+    transition-duration: .3s;
+}
+.project:hover {
+    width: 20vh;
+    height: 20vh;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 2vh;
+    background-color: black;
+    color: white;
+}
+.project:hover > div.divisor {
+    background-color: white;
+}
+.project:active {
+    width: 20vh;
+    height: 20vh;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 2vh;
+    background-color: lightgray;
+    color: darkgray;
+}
