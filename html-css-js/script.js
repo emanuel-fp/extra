@@ -1,3 +1,4 @@
+let container = document.getElementById("Projects_container")
 const projects = 
 {
     number_generator: {
@@ -6,6 +7,9 @@ const projects =
         path: "./number_generator/index.html"
     },
 }
+
+let newHtml = ""
+
 for (const i in projects) 
 {
     if (!Object.hasOwn(projects, i)) continue;
@@ -14,9 +18,11 @@ for (const i in projects)
     
     console.log(project)
 
-    let container = document.getElementById("Projects_container")
-    container.innerHTML = `<a href="${project.path}" class="project"> <p><span class="title">${project.name}</span> <div class="divisor"></div> <span class="description">${project.description}</span></p> </a>`
+    newHtml += `<a href="${project.path}" class="project"> <p><span class="title">${project.name}</span> <div class="divisor"></div> <span class="description">${project.description}</span></p> </a>`
+
+    
 }
+container.innerHTML = newHtml
 
 function openProject (index) 
 {
